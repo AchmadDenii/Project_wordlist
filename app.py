@@ -10,14 +10,20 @@ from pymongo import MongoClient
 import requests
 from datetime import datetime
 from bson import ObjectId
+import os
+from os.path import join, dirname
+from dotenv import load_dotenv
+
+dotenv_path = join(dirname(__file__), '.env')
+load_dotenv(dotenv_path)
+
+MONGODB_URI = os.environ.get("MONGODB_URI")
+DB_NAME =  os.environ.get("DB_NAME")
+
+client = MongoClient(MONGODB_URI)
+db = client[DB_NAME]
 
 app = Flask(__name__)
-
-cxn_str = 'mongodb+srv://test:sparta@cluster0.a3bd45q.mongodb.net/?retryWrites=true&w=majority'
-client = MongoClient(cxn_str)
-
-db = client.dbsparta_SL_ten
-
 
 @app.route('/')
 def main():
