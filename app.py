@@ -1,11 +1,4 @@
-from flask import (
-    Flask,
-    request,
-    render_template,
-    redirect,
-    url_for,
-    jsonify
-)
+from flask import (Flask,request,render_template,redirect,url_for,jsonify)
 from pymongo import MongoClient
 import requests
 from datetime import datetime
